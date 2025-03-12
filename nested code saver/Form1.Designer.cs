@@ -49,7 +49,7 @@
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnSave.Location = new System.Drawing.Point(767, 12);
+            this.btnSave.Location = new System.Drawing.Point(349, 425);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 30);
             this.btnSave.TabIndex = 0;
@@ -93,7 +93,7 @@
             // 
             // txtExtension
             // 
-            this.txtExtension.Location = new System.Drawing.Point(459, 421);
+            this.txtExtension.Location = new System.Drawing.Point(548, 427);
             this.txtExtension.Name = "txtExtension";
             this.txtExtension.Size = new System.Drawing.Size(68, 22);
             this.txtExtension.TabIndex = 5;
@@ -102,7 +102,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(533, 421);
+            this.label1.Location = new System.Drawing.Point(622, 427);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 21);
             this.label1.TabIndex = 6;
@@ -112,7 +112,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(720, 423);
+            this.label2.Location = new System.Drawing.Point(803, 427);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 21);
             this.label2.TabIndex = 8;
@@ -120,7 +120,7 @@
             // 
             // txtFileName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(614, 421);
+            this.txtFileName.Location = new System.Drawing.Point(697, 425);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(100, 22);
             this.txtFileName.TabIndex = 7;
@@ -131,7 +131,7 @@
             this.copycode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.copycode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copycode.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.copycode.Location = new System.Drawing.Point(599, 12);
+            this.copycode.Location = new System.Drawing.Point(791, 12);
             this.copycode.Name = "copycode";
             this.copycode.Size = new System.Drawing.Size(51, 30);
             this.copycode.TabIndex = 9;
@@ -145,7 +145,7 @@
             this.pastecode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pastecode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pastecode.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.pastecode.Location = new System.Drawing.Point(530, 12);
+            this.pastecode.Location = new System.Drawing.Point(722, 12);
             this.pastecode.Name = "pastecode";
             this.pastecode.Size = new System.Drawing.Size(63, 30);
             this.pastecode.TabIndex = 10;
@@ -159,7 +159,7 @@
             this.newpagebtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.newpagebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newpagebtn.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.newpagebtn.Location = new System.Drawing.Point(428, 12);
+            this.newpagebtn.Location = new System.Drawing.Point(620, 12);
             this.newpagebtn.Name = "newpagebtn";
             this.newpagebtn.Size = new System.Drawing.Size(96, 30);
             this.newpagebtn.TabIndex = 12;
@@ -173,7 +173,7 @@
             this.btnChooseFolder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChooseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChooseFolder.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnChooseFolder.Location = new System.Drawing.Point(656, 12);
+            this.btnChooseFolder.Location = new System.Drawing.Point(430, 425);
             this.btnChooseFolder.Name = "btnChooseFolder";
             this.btnChooseFolder.Size = new System.Drawing.Size(105, 30);
             this.btnChooseFolder.TabIndex = 13;
