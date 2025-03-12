@@ -85,9 +85,9 @@
             this.lstCodes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lstCodes.FormattingEnabled = true;
             this.lstCodes.ItemHeight = 16;
-            this.lstCodes.Location = new System.Drawing.Point(12, 48);
+            this.lstCodes.Location = new System.Drawing.Point(12, 64);
             this.lstCodes.Name = "lstCodes";
-            this.lstCodes.Size = new System.Drawing.Size(331, 370);
+            this.lstCodes.Size = new System.Drawing.Size(331, 354);
             this.lstCodes.TabIndex = 4;
             this.lstCodes.SelectedIndexChanged += new System.EventHandler(this.lstCodes_SelectedIndexChanged);
             // 
@@ -184,7 +184,7 @@
             // folderpathlable
             // 
             this.folderpathlable.AutoSize = true;
-            this.folderpathlable.Location = new System.Drawing.Point(12, 26);
+            this.folderpathlable.Location = new System.Drawing.Point(12, 45);
             this.folderpathlable.Name = "folderpathlable";
             this.folderpathlable.Size = new System.Drawing.Size(97, 16);
             this.folderpathlable.TabIndex = 14;
