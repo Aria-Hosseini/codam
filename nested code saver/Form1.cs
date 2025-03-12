@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace NestedCodeSaver
@@ -64,7 +65,15 @@ namespace NestedCodeSaver
         {
             codeFiles.Clear();
             string[] files = Directory.GetFiles(folderPath);
-            codeFiles.AddRange(files);
+            string extension = txtExtension.Text.Trim();
+            if (string.IsNullOrWhiteSpace(extension))
+            {
+                extension = ".txt"; 
+            }
+            if (!extension.StartsWith(".")) extension = "." + extension;
+
+            codeFiles.AddRange(files.Where(file => file.EndsWith(extension, StringComparison.OrdinalIgnoreCase)));
+
             UpdateCodeList();
         }
 
@@ -82,6 +91,7 @@ namespace NestedCodeSaver
 
         private void lstCodes_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             if (lstCodes.SelectedIndex >= 0)
             {
                 string filePath = codeFiles[lstCodes.SelectedIndex];
@@ -134,6 +144,31 @@ namespace NestedCodeSaver
         private void btnnewfolder_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtCode.Clear();
+        }
+
+        private void btnChooseFolder_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            {
+                folderDialog.Description = "مسیر ذخیره سازی را انتخاب کنید";
+                folderDialog.SelectedPath = folderPath;
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    folderPath = folderDialog.SelectedPath;
+                    folderpathlable.Text = folderPath;
+                    LoadCodes();
+                }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            folderpathlable.Text = folderPath;
         }
     }
 }

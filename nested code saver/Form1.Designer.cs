@@ -38,7 +38,9 @@
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.copycode = new System.Windows.Forms.Button();
             this.pastecode = new System.Windows.Forms.Button();
-            this.btnnewfolder = new System.Windows.Forms.Button();
+            this.newpagebtn = new System.Windows.Forms.Button();
+            this.btnChooseFolder = new System.Windows.Forms.Button();
+            this.folderpathlable = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -47,7 +49,7 @@
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnSave.Location = new System.Drawing.Point(687, 12);
+            this.btnSave.Location = new System.Drawing.Point(767, 12);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 30);
             this.btnSave.TabIndex = 0;
@@ -61,7 +63,7 @@
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnDelete.Location = new System.Drawing.Point(167, 12);
+            this.btnDelete.Location = new System.Drawing.Point(268, 12);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 30);
             this.btnDelete.TabIndex = 1;
@@ -74,7 +76,7 @@
             this.txtCode.Location = new System.Drawing.Point(349, 48);
             this.txtCode.Multiline = true;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(413, 370);
+            this.txtCode.Size = new System.Drawing.Size(493, 370);
             this.txtCode.TabIndex = 3;
             this.txtCode.TextChanged += new System.EventHandler(this.txtCode_TextChanged);
             // 
@@ -91,16 +93,16 @@
             // 
             // txtExtension
             // 
-            this.txtExtension.Location = new System.Drawing.Point(349, 421);
+            this.txtExtension.Location = new System.Drawing.Point(459, 421);
             this.txtExtension.Name = "txtExtension";
-            this.txtExtension.Size = new System.Drawing.Size(100, 22);
+            this.txtExtension.Size = new System.Drawing.Size(68, 22);
             this.txtExtension.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(455, 421);
+            this.label1.Location = new System.Drawing.Point(533, 421);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 21);
             this.label1.TabIndex = 6;
@@ -110,7 +112,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(692, 424);
+            this.label2.Location = new System.Drawing.Point(720, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 21);
             this.label2.TabIndex = 8;
@@ -118,7 +120,7 @@
             // 
             // txtFileName
             // 
-            this.txtFileName.Location = new System.Drawing.Point(586, 422);
+            this.txtFileName.Location = new System.Drawing.Point(614, 421);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(100, 22);
             this.txtFileName.TabIndex = 7;
@@ -129,7 +131,7 @@
             this.copycode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.copycode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.copycode.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.copycode.Location = new System.Drawing.Point(630, 12);
+            this.copycode.Location = new System.Drawing.Point(599, 12);
             this.copycode.Name = "copycode";
             this.copycode.Size = new System.Drawing.Size(51, 30);
             this.copycode.TabIndex = 9;
@@ -143,7 +145,7 @@
             this.pastecode.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pastecode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.pastecode.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.pastecode.Location = new System.Drawing.Point(561, 12);
+            this.pastecode.Location = new System.Drawing.Point(530, 12);
             this.pastecode.Name = "pastecode";
             this.pastecode.Size = new System.Drawing.Size(63, 30);
             this.pastecode.TabIndex = 10;
@@ -151,26 +153,51 @@
             this.pastecode.UseVisualStyleBackColor = false;
             this.pastecode.Click += new System.EventHandler(this.pastecode_Click);
             // 
-            // btnnewfolder
+            // newpagebtn
             // 
-            this.btnnewfolder.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnnewfolder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnnewfolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnnewfolder.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnnewfolder.Location = new System.Drawing.Point(248, 12);
-            this.btnnewfolder.Name = "btnnewfolder";
-            this.btnnewfolder.Size = new System.Drawing.Size(95, 30);
-            this.btnnewfolder.TabIndex = 11;
-            this.btnnewfolder.Text = "پوشه جدید";
-            this.btnnewfolder.UseVisualStyleBackColor = false;
-            this.btnnewfolder.Click += new System.EventHandler(this.btnnewfolder_Click);
+            this.newpagebtn.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.newpagebtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.newpagebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.newpagebtn.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.newpagebtn.Location = new System.Drawing.Point(428, 12);
+            this.newpagebtn.Name = "newpagebtn";
+            this.newpagebtn.Size = new System.Drawing.Size(96, 30);
+            this.newpagebtn.TabIndex = 12;
+            this.newpagebtn.Text = "صفحه جدید";
+            this.newpagebtn.UseVisualStyleBackColor = false;
+            this.newpagebtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnChooseFolder
+            // 
+            this.btnChooseFolder.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnChooseFolder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChooseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChooseFolder.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnChooseFolder.Location = new System.Drawing.Point(656, 12);
+            this.btnChooseFolder.Name = "btnChooseFolder";
+            this.btnChooseFolder.Size = new System.Drawing.Size(105, 30);
+            this.btnChooseFolder.TabIndex = 13;
+            this.btnChooseFolder.Text = "انتخاب مسیر";
+            this.btnChooseFolder.UseVisualStyleBackColor = false;
+            this.btnChooseFolder.Click += new System.EventHandler(this.btnChooseFolder_Click);
+            // 
+            // folderpathlable
+            // 
+            this.folderpathlable.AutoSize = true;
+            this.folderpathlable.Location = new System.Drawing.Point(12, 26);
+            this.folderpathlable.Name = "folderpathlable";
+            this.folderpathlable.Size = new System.Drawing.Size(97, 16);
+            this.folderpathlable.TabIndex = 14;
+            this.folderpathlable.Text = "folderpathlable";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 462);
-            this.Controls.Add(this.btnnewfolder);
+            this.ClientSize = new System.Drawing.Size(854, 462);
+            this.Controls.Add(this.folderpathlable);
+            this.Controls.Add(this.btnChooseFolder);
+            this.Controls.Add(this.newpagebtn);
             this.Controls.Add(this.pastecode);
             this.Controls.Add(this.copycode);
             this.Controls.Add(this.label2);
@@ -185,7 +212,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "کدام😁";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,7 +231,9 @@
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Button copycode;
         private System.Windows.Forms.Button pastecode;
-        private System.Windows.Forms.Button btnnewfolder;
+        private System.Windows.Forms.Button newpagebtn;
+        private System.Windows.Forms.Button btnChooseFolder;
+        private System.Windows.Forms.Label folderpathlable;
     }
 }
 
