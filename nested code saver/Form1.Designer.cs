@@ -41,6 +41,8 @@
             this.newpagebtn = new System.Windows.Forms.Button();
             this.btnChooseFolder = new System.Windows.Forms.Button();
             this.folderpathlable = new System.Windows.Forms.Label();
+            this.vihancode = new System.Windows.Forms.Label();
+            this.searchbar = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnSave
@@ -190,11 +192,33 @@
             this.folderpathlable.TabIndex = 14;
             this.folderpathlable.Text = "folderpathlable";
             // 
+            // vihancode
+            // 
+            this.vihancode.AutoSize = true;
+            this.vihancode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.vihancode.Font = new System.Drawing.Font("Vazir", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vihancode.Location = new System.Drawing.Point(12, 434);
+            this.vihancode.Name = "vihancode";
+            this.vihancode.Size = new System.Drawing.Size(174, 21);
+            this.vihancode.TabIndex = 15;
+            this.vihancode.Text = "made by VihanCode | v1.1.0";
+            this.vihancode.Click += new System.EventHandler(this.vihancode_Click);
+            // 
+            // searchbar
+            // 
+            this.searchbar.Location = new System.Drawing.Point(12, 20);
+            this.searchbar.Name = "searchbar";
+            this.searchbar.Size = new System.Drawing.Size(174, 22);
+            this.searchbar.TabIndex = 16;
+            this.searchbar.TextChanged += new System.EventHandler(this.searchbar_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 462);
+            this.Controls.Add(this.searchbar);
+            this.Controls.Add(this.vihancode);
             this.Controls.Add(this.folderpathlable);
             this.Controls.Add(this.btnChooseFolder);
             this.Controls.Add(this.newpagebtn);
@@ -234,6 +258,8 @@
         private System.Windows.Forms.Button newpagebtn;
         private System.Windows.Forms.Button btnChooseFolder;
         private System.Windows.Forms.Label folderpathlable;
+        private System.Windows.Forms.Label vihancode;
+        private System.Windows.Forms.TextBox searchbar;
     }
 }
 
