@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing; // برای رنگ‌ها
+using System.Drawing; 
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,7 +13,7 @@ namespace NestedCodeSaver
         private string folderPath = "SavedCodes";
         private List<string> codeFiles = new List<string>();
         private string selectedFilePath = null;
-        private const string SearchPlaceholder = "جستجو..."; // متن Placeholder
+        private const string SearchPlaceholder = "جستجو..."; 
 
         public Form1()
         {
@@ -21,16 +21,15 @@ namespace NestedCodeSaver
             InitializeFolder();
             LoadCodes();
 
-            // تنظیم Placeholder برای searchbar
             SetupSearchbarPlaceholder();
         }
 
         private void SetupSearchbarPlaceholder()
         {
             searchbar.Text = SearchPlaceholder;
-            searchbar.ForeColor = Color.Gray; // رنگ خاکستری برای Placeholder
-            searchbar.Enter += Searchbar_Enter; // وقتی کاربر وارد تکست‌باکس می‌شه
-            searchbar.Leave += Searchbar_Leave; // وقتی کاربر از تکست‌باکس خارج می‌شه
+            searchbar.ForeColor = Color.Gray; 
+            searchbar.Enter += Searchbar_Enter; 
+            searchbar.Leave += Searchbar_Leave; 
         }
 
         private void Searchbar_Enter(object sender, EventArgs e)
@@ -38,7 +37,7 @@ namespace NestedCodeSaver
             if (searchbar.Text == SearchPlaceholder)
             {
                 searchbar.Text = "";
-                searchbar.ForeColor = Color.Black; // رنگ معمولی برای تایپ
+                searchbar.ForeColor = Color.Black; 
             }
         }
 
@@ -88,7 +87,8 @@ namespace NestedCodeSaver
                     codeFiles.Add(fullPath);
                 }
 
-                File.WriteAllText(fullPath, txtCode.Text);
+                File.WriteAllText(fullPath, "[SavedByNestedCodeSaver]\n" + txtCode.Text);
+
                 UpdateCodeList();
                 txtCode.Clear();
                 txtFileName.Clear();
@@ -106,21 +106,47 @@ namespace NestedCodeSaver
             codeFiles.Clear();
             string[] files = Directory.GetFiles(folderPath);
             string extension = txtExtension.Text.Trim();
+
             if (string.IsNullOrWhiteSpace(extension))
             {
                 extension = ".txt";
             }
             if (!extension.StartsWith(".")) extension = "." + extension;
 
-            codeFiles.AddRange(files.Where(file => file.EndsWith(extension, StringComparison.OrdinalIgnoreCase)));
+            bool showAllFiles = (cmbExtensions.SelectedItem?.ToString() == "همه فایل‌ها");
+
+            foreach (var file in files)
+            {
+                try
+                {
+                    string content = File.ReadAllText(file);
+                    if (content.StartsWith("[SavedByNestedCodeSaver]")) 
+                    {
+                        if (showAllFiles)
+                        {
+                            codeFiles.Add(file);
+                        }
+                        else if (file.EndsWith(extension, StringComparison.OrdinalIgnoreCase))
+                        {
+                            codeFiles.Add(file);
+                        }
+                    }
+                }
+                catch
+                {
+                    continue; 
+                }
+            }
+
             UpdateCodeList();
         }
+
 
         private void UpdateCodeList()
         {
             lstCodes.Items.Clear();
             string searchText = searchbar.Text.Trim().ToLower();
-            if (searchText == SearchPlaceholder.ToLower()) searchText = ""; // نادیده گرفتن Placeholder
+            if (searchText == SearchPlaceholder.ToLower()) searchText = ""; 
 
             foreach (var file in codeFiles)
             {
@@ -213,6 +239,8 @@ namespace NestedCodeSaver
                     folderPath = folderDialog.SelectedPath;
                     folderpathlable.Text = folderPath;
                     LoadCodes();
+                    LoadExtensions();
+
                 }
             }
         }
@@ -220,6 +248,9 @@ namespace NestedCodeSaver
         private void Form1_Load(object sender, EventArgs e)
         {
             folderpathlable.Text = folderPath;
+            LoadExtensions();
+            cmbExtensions.SelectedIndex = 0;
+            LoadCodes();
         }
 
         private void vihancode_Click(object sender, EventArgs e)
@@ -234,6 +265,43 @@ namespace NestedCodeSaver
         private void searchbar_TextChanged(object sender, EventArgs e)
         {
             UpdateCodeList();
+        }
+
+        private void LoadExtensions()
+        {
+            if (!Directory.Exists(folderPath)) return;
+
+            var extensions = Directory.GetFiles(folderPath)
+                                      .Where(f => File.ReadAllText(f).StartsWith("[SavedByNestedCodeSaver]"))
+                                      .Select(f => Path.GetExtension(f).ToLower())
+                                      .Distinct()
+                                      .OrderBy(e => e)
+                                      .ToList();
+
+            cmbExtensions.Items.Clear();
+            cmbExtensions.Items.Add("همه فایل‌ها");
+            cmbExtensions.Items.AddRange(extensions.ToArray());
+
+            cmbExtensions.SelectedIndex = 0;
+        }
+
+        private void cmbExtensions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbExtensions.SelectedItem == null) return;
+
+            string selectedExt = cmbExtensions.SelectedItem.ToString();
+            if (selectedExt == "همه فایل‌ها")
+            {
+                LoadCodes(); 
+            }
+            else
+            {
+                codeFiles = Directory.GetFiles(folderPath)
+                                    .Where(file => file.EndsWith(selectedExt, StringComparison.OrdinalIgnoreCase) &&
+                                                   File.ReadAllText(file).StartsWith("[SavedByNestedCodeSaver]"))
+                                    .ToList();
+                UpdateCodeList();
+            }
         }
     }
 }
